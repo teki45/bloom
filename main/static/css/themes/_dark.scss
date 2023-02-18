@@ -11,6 +11,15 @@
     h1, h2, h3, h4, h5, h6, p, small {
         margin: 0;
     }
+
+    i.bi {
+        font-size: 12px;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 30px;
+    }
     
     // Layout
 
@@ -33,7 +42,7 @@
 
             a {
                 text-decoration: none;
-                background: linear-gradient(to bottom, #1f1f1f, #252525);
+                background: linear-gradient(to top, #1f1f1f, #252525);
                 padding: 5px 20px;
                 color: #aaa;
                 border: 1px solid #303030;
@@ -48,12 +57,13 @@
                 }
             }
 
-            form.search {
+            .side {
                 position: absolute;
                 top: 6px;
                 right: 6px;
                 display: flex;
                 flex-direction: row;
+                gap: 5px;
             }
         }
     }
@@ -64,11 +74,30 @@
         &:last-child {
             padding: 10px;
         }
+
+        &.split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &.left-heavy {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        &.right-heavy {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        &.splitter {
+            border-bottom: 1px solid #303030;
+        }
     }
 
     // Inputs
 
-    input[type="text"], textarea {
+    input[type="text"], input[type="email"], input[type="password"], textarea {
         font-family: inherit;
         font-size: 14px;
         padding: 5px;
@@ -92,7 +121,7 @@
         box-shadow: 0 2px 3px rgba($color: #000000, $alpha: .1);
         outline: none;
         border: 1px solid #303030;
-        background: linear-gradient(to bottom, #1f1f1f, #252525);
+        background: linear-gradient(to top, #1f1f1f, #252525);
         color: #f0f0f0;
         padding: 5px 15px;
 
@@ -101,7 +130,7 @@
         }
 
         &:active {
-            background: linear-gradient(to top, #1f1f1f, #252525);
+            background: linear-gradient(to bottom, #1f1f1f, #252525);
         }
 
         &.primary {
@@ -158,6 +187,10 @@
                     border-bottom-width: 1px;
                     border-bottom-left-radius: 3px;
                     border-bottom-right-radius: 3px;
+                }
+
+                &:active, &:focus {
+                    border-bottom-width: 1px;
                 }
             }
         }

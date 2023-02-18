@@ -11,6 +11,15 @@
     h1, h2, h3, h4, h5, h6, p, small {
         margin: 0;
     }
+
+    ul {
+        margin: 0;
+        padding-left: 30px;
+    }
+
+    i.bi {
+        font-size: 12px;
+    }
     
     // Layout
 
@@ -48,12 +57,13 @@
                 }
             }
 
-            form.search {
+            .side {
                 position: absolute;
                 top: 6px;
                 right: 6px;
                 display: flex;
                 flex-direction: row;
+                gap: 5px;
             }
         }
     }
@@ -61,14 +71,39 @@
     .section {
         padding: 10px 10px 0 10px;
 
-        &:last-child {
+        &.split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &.left-heavy {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        &.right-heavy {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        &.splitter {
+            border-bottom: 1px solid #ccc;
+        }
+
+        &:last-child, &.splitter {
             padding: 10px;
         }
     }
 
+    .card {
+        padding: 5px;
+        border: 1px solid #ccc;
+        background: #fafafa;
+    }
+
     // Inputs
 
-    input[type="text"], textarea {
+    input[type="text"], input[type="email"], input[type="password"], textarea {
         font-family: inherit;
         font-size: 14px;
         padding: 5px;
@@ -155,6 +190,10 @@
                     border-bottom-width: 1px;
                     border-bottom-left-radius: 3px;
                     border-bottom-right-radius: 3px;
+                }
+
+                &:active, &:focus {
+                    border-bottom-width: 1px;
                 }
             }
         }
