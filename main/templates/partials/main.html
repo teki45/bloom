@@ -8,11 +8,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% compress css %}
-        <link type="text/x-scss" href="{% static 'main/style.scss' %}"     rel="stylesheet" media="screen">
+        <link type="text/x-scss" href="{% static 'css/main.scss' %}"     rel="stylesheet" media="screen">
         {% endcompress %}
         <title>Bloom</title>
     </head>
     <body class="light-mode">
-        {% block content %}{% endblock content %}
+        <div class="container">
+            {% include 'partials/navbar.html' %}
+            {% block content %}{% endblock content %}
+        </div>
     </body>
 </html>

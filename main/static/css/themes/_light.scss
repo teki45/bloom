@@ -1,0 +1,162 @@
+@mixin light-mode {
+    // Font (Abel)
+    
+    @import url('https://fonts.googleapis.com/css2?family=Abel&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+    font-family: "Abel", Arial, Helvetica, sans-serif;
+
+    margin: 0;
+    background: #eee;
+    color: #222;
+
+    h1, h2, h3, h4, h5, h6, p, small {
+        margin: 0;
+    }
+    
+    // Layout
+
+    .container {
+        width: 800px;
+        margin: 0 auto;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba($color: #000000, $alpha: .1);
+
+        .navbar {
+            position: relative;
+            padding: 10px 10px 0 10px;
+            background: linear-gradient(to bottom, #eee, #e7e7e7);
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            box-shadow: inset 0 -1px 0 #ccc;
+
+            a {
+                text-decoration: none;
+                background: linear-gradient(to bottom, #f0f0f0, #fff);
+                padding: 5px 20px;
+                color: #222;
+                border: 1px solid #ccc;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                width: 40px;
+                text-align: center;
+
+                &.active {
+                    border-bottom: none;
+                    background: #fff;
+                }
+            }
+
+            form.search {
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+
+    .section {
+        padding: 10px 10px 0 10px;
+
+        &:last-child {
+            padding: 10px;
+        }
+    }
+
+    // Inputs
+
+    input[type="text"], textarea {
+        font-family: inherit;
+        font-size: 14px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 2px 3px rgba($color: #000000, $alpha: .1);
+        border-radius: 3px;
+        outline: none;
+
+        &:active, &:focus {
+            border-color: green;
+            box-shadow: 0 2px 3px rgba($color: #000000, $alpha: .1);
+        }
+    }
+
+    button, input[type="submit"] {
+        font-size: 14px;
+        font-family: inherit;
+        border-radius: 3px;
+        box-shadow: 0 2px 3px rgba($color: #000000, $alpha: .1);
+        outline: none;
+        border: 1px solid #ccc;
+        background: linear-gradient(to top, #f0f0f0, #fff);
+        padding: 5px 15px;
+
+        &:hover {
+            background: #fff;
+        }
+
+        &:active {
+            background: linear-gradient(to bottom, #f0f0f0, #fff);
+        }
+
+        &.primary {
+            background: linear-gradient(to top, #007200, #009e00);
+            color: #fff;
+            border: 1px solid #006319;
+
+            &:hover {
+                background: #009e00;
+            }
+    
+            &:active {
+                background: linear-gradient(to bottom, #007200, #009e00);
+            }
+        }
+    }
+
+    .input-group {
+        &.horizontal {
+            display: flex;
+            flex-direction: row;
+
+            button, input {
+                border-radius: 0;
+                border-left-width: 0px;
+
+                &:first-child {
+                    border-left-width: 1px;
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                }
+
+                &:last-child {
+                    border-top-right-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                }
+            }
+        }
+
+        &.vertical {
+            display: flex;
+            flex-direction: column;
+
+            button, input {
+                border-radius: 0;
+                border-bottom-width: 0px;
+
+                &:first-child {
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px;
+                }
+
+                &:last-child {
+                    border-bottom-width: 1px;
+                    border-bottom-left-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                }
+            }
+        }
+    }
+}
