@@ -5,4 +5,5 @@ Bloom is a video sharing site that prioritizes self expression.
 
 ## Links
 Site: N/A
+
 Discord: https://discord.gg/HGAY72gTWW
