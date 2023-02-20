@@ -1,9 +1,11 @@
 @import "dark", "light";
 
-.light-mode {
+.default-theme {
     @include light-mode;
 }
 
-.dark-mode {
-    @include dark-mode;
-}
+@media (prefers-color-scheme: dark) {
+    .default-theme {
+        @include dark-mode;
+    }
+} 
