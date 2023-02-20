@@ -24,7 +24,7 @@
         color: #009e00;
 
         &:visited {
-            color: #006319;
+            color: #98dba9;
         }
     }
     
@@ -35,7 +35,12 @@
 
     hr {
         border: none;
-        border-top: 1px solid #303030;
+        margin-bottom: 0;
+
+        &.seperator {
+            margin-bottom: 0.5em;
+            border-top: 1px solid #303030;
+        }
     }
 
     // Messages
