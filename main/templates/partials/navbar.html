@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <img src="{% static 'img/brand/bloom.svg' %}" height=24 style="margin-right: 5px" alt="">
-    <a href="" {% if request.path == '/' %}class="active"{% endif %}>Home</a>
+    <a href="{% url 'home' %}" {% if request.path == '/' %}class="active"{% endif %}>Home</a>
     <a href="" {% if request.path == '/users' %}class="active"{% endif %}>Users</a>
     <a href="" {% if request.path == '/video' %}class="active"{% endif %}>Video</a>
     <div class="side">
@@ -13,12 +13,15 @@
             </div>
         </form>
         {% if user.is_authenticated %}
-        <button><i class="bi bi-person"></i> misteki</button>
-        <button class="primary"><i class="bi bi-upload"></i></button>
+        <div class="input-group horizontal">
+            <button><i class="bi bi-person override"></i> {{ user.username }}</button>
+            <button onclick="window.location.href = '{% url 'account_logout' %}'"><i class="bi bi-box-arrow-right"></i></button>
+        </div>
+        <button class="primary"><i class="bi bi-upload override"></i></button>
         {% else %}
         <div class="input-group horizontal">
-            <button>Sign In</button>
-            <button class="primary">Sign Up</button>
+            <button onclick="window.location.href = '{% url 'account_login' %}'">Log In</button>
+            <button onclick="window.location.href = '{% url 'account_signup' %}'" class="primary">Sign Up</button>
         </div>
         {% endif %}
     </div>

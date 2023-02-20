@@ -1,0 +1,20 @@
+{% extends 'partials/main.html' %}
+
+{% block title %}Log Out{% endblock title %}
+
+{% block content %}
+<div class="section centered splitter">
+    <h2>Good Riddance! <i class="bi bi-emoji-smile-upside-down"></i></h2>
+    <p>Are you sure you want to log out?</p>
+    
+</div>
+<div class="section centered">
+    <form method="post">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button type="submit" class="primary">Log Out</button>
+    </form>
+</div>
+{% endblock content %}

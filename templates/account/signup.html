@@ -1,0 +1,34 @@
+{% extends 'partials/main.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<div class="section left-heavy">
+    <div>
+        <h2>Sign Up for Bloom <i class="bi bi-person-add"></i></h2>
+        <p>
+            and enjoy all the perks that come with an account:
+            <li><i>Create, upload, comment on and share videos</i></li>
+            <li><i>Personalise your account using CSS*, or existing themes by the community</i></li>
+            <li><i>Create playlists to save your favourite videos for later</i></li>
+            <li><i>Follow the creators you enjoy and see their latest uploads on your homepage</i></li>
+            <li><i>...and more on the way!</i></li>
+        </p>
+        <small>*Custom CSS only available to select users</small>
+    </div>
+    <div>
+        <form action="" class="input-group vertical" method="post">
+            {% for field in form %}
+            {{ field }}
+            {% endfor %}
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button type="submit" class="primary">Create an account!</button>
+        </form>
+        <hr>
+        <p>No thanks, I want to <a href="{% url 'account_login' %}">log in</a> instead</p>
+    </div>
+</div>
+{% endblock content %}

@@ -11,9 +11,10 @@
         <link type="text/x-scss" href="{% static 'css/main.scss' %}"     rel="stylesheet" media="screen">
         {% endcompress %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <title>Bloom</title>
+        <title>Bloom | {% block title %}Express Yourself{% endblock title %}</title>
     </head>
     <body class="default-theme">
+        {% include 'partials/messages.html' %}
         <div class="container">
             {% include 'partials/navbar.html' %}
             {% block content %}{% endblock content %}
